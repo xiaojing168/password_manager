@@ -24,6 +24,10 @@ def generate_password():
     #Every time gerenate a password, can paste without copy
     pyperclip.copy(password)
 
+def show_data():
+    with open("data.txt") as data:
+        data = data.read()
+        messagebox.showinfo(title="Password Manager", message=data)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
@@ -41,6 +45,7 @@ def save():
                 data_file.write(f"{website_data} | {email_data} | {password_data}\n")
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
+    show_data()
 
 # ---------------------------- UI SETUP ------------------------------- #
 
